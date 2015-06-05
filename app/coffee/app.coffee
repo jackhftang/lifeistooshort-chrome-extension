@@ -196,4 +196,13 @@ do ->
   window.app = new App($('app'))
   do app.renderMonthLoop
 
+
+  # get state from local storage
+  chrome.storage.local.get 'showMonth',  (items) ->
+    if !items.showMonth
+      $('month-section').classList.add('hidden')
+    else
+      $('month-section').classList.remove('hidden')
+
+
   return
